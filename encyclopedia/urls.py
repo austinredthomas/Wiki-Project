@@ -4,7 +4,8 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("<str:title>", views.title, name="title")
+    path("wiki/<str:title>", views.title, name="title"),
+    path("search", views.search, name="search")
 
     # create a new page section
 
