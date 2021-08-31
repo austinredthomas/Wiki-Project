@@ -6,7 +6,7 @@
 
 {% block body %}
 
-<p> {{entry}} </p>
+{{ entry | safe}}
 
 <form method="POST" action="{% url 'edit' %}">
     {% csrf_token %}

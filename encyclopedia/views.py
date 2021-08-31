@@ -4,6 +4,8 @@ from . import util
 
 import random
 
+import markdown2
+
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -17,7 +19,7 @@ def title(request, title):
         })
     else:
         return render(request, "encyclopedia/title.html", {
-            "entry": util.get_entry(title),
+            "entry":markdown2.markdown(util.get_entry(title)),
             "title":title
         })
 
@@ -31,7 +33,8 @@ def search(request):
             })
         else:
             return render(request, "encyclopedia/title.html", {
-                "entry":util.get_entry(q)
+                "entry":markdown2.markdown(util.get_entry(q)),
+                "title":q
             })
     else:
         return render(request, "encyclopedia/search.html")
@@ -48,7 +51,7 @@ def new(request):
                 })
         util.save_entry(title, markdown)
         return render(request, "encyclopedia/title.html", {
-            "entry":util.get_entry(title),
+            "entry":markdown2.markdown(util.get_entry(title)),
             "title":title
         })
     else:
@@ -68,7 +71,7 @@ def save(request):
         entries = util.list_entries()
         util.save_entry(title, markdown)
         return render(request, "encyclopedia/title.html", {
-            "entry":util.get_entry(title),
+            "entry":markdown2.markdown(util.get_entry(title)),
             "title":title
         })
     else:
@@ -78,6 +81,6 @@ def randompage(request):
     entries = util.list_entries()
     title = random.choice(entries)
     return render(request, "encyclopedia/title.html", {
-        "entry":util.get_entry(title),
+        "entry":markdown2.markdown(util.get_entry(title)),
         "title":title
     })
