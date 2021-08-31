@@ -15,7 +15,8 @@ def title(request, title):
         })
     else:
         return render(request, "encyclopedia/title.html", {
-            "entry": util.get_entry(title)
+            "entry": util.get_entry(title),
+            "title":title
         })
 
 def search(request):
@@ -28,7 +29,7 @@ def search(request):
             })
         else:
             return render(request, "encyclopedia/title.html", {
-                "entry": util.get_entry(q)
+                "entry":util.get_entry(q)
             })
     else:
         return render(request, "encyclopedia/search.html")
@@ -45,7 +46,28 @@ def new(request):
                 })
         util.save_entry(title, markdown)
         return render(request, "encyclopedia/title.html", {
-            "entry":util.get_entry(title)
+            "entry":util.get_entry(title),
+            "title":title
         })
     else:
         return render(request, "encyclopedia/new.html")
+
+def edit(request):
+    title = request.POST['title']
+    return render(request, "encyclopedia/edit.html", {
+        "title":title,
+        "entry":util.get_entry(title)
+    })
+
+def save(request):
+    if request.method == "POST":
+        markdown = request.POST['markdown']
+        title = request.POST['title']
+        entries = util.list_entries()
+        util.save_entry(title, markdown)
+        return render(request, "encyclopedia/title.html", {
+            "entry":util.get_entry(title),
+            "title":title
+        })
+    else:
+        return render(request, "encyclopedia/edit.html")
