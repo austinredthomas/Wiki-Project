@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 from . import util
 
+import random
+
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -71,3 +73,11 @@ def save(request):
         })
     else:
         return render(request, "encyclopedia/edit.html")
+
+def randompage(request):
+    entries = util.list_entries()
+    title = random.choice(entries)
+    return render(request, "encyclopedia/title.html", {
+        "entry":util.get_entry(title),
+        "title":title
+    })
