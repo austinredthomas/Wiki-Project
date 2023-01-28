@@ -10,6 +10,6 @@ This project is a great example of how to use Django to create a full-featured w
 
 [![Wiki Web App](https://i.imgur.com/J2Arw9E.png)](https://www.youtube.com/watch?v=XsYJXroq8RI "Wiki Web App")
 
-To run the project, you will need to have Python and Django installed. Once you have these, you can clone the repository, install the dependencies, and run the server.
+To run the project, you will need to have Python and Django installed. Once you have these, you can clone the repository and run the server.
 
 Thank you for checking out the custom Wiki web app!
