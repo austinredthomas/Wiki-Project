@@ -8,7 +8,7 @@ Article display with sections, images and links using markdown -> HTML conversio
 
 This project is a great example of how to use Django to create a full-featured web app with database management.
 
-[![Wiki Web App](https://imgur.com/J2Arw9E)](https://www.youtube.com/watch?v=XsYJXroq8RI "Wiki Web App")
+[![Wiki Web App](https://i.imgur.com/J2Arw9E.png)](https://www.youtube.com/watch?v=XsYJXroq8RI "Wiki Web App")
 
 To run the project, you will need to have Python and Django installed. Once you have these, you can clone the repository, install the dependencies, and run the server.
 
